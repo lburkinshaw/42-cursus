@@ -33,9 +33,9 @@ int	main(void)
 	char	*string1;
 	char	*string2;
 	
-	string1 = "";
-	string2 = "i";
-	printf("My code says: %d\n", ft_strncmp(string1, string2, 10));
-	printf("Actual code says: %d\n", strncmp(string1, string2, 10));
+	string1 = "hello world";
+	string2 = "hello worlD";
+	printf("My code says: %d\n", ft_strncmp(string1, string2, 5));
+	printf("Actual code says: %d\n", strncmp(string1, string2, 5));
 	return (0);
 }
