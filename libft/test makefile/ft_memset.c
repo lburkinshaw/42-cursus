@@ -6,7 +6,7 @@
 /*   By: lburkins <lburkins@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:25:58 by lburkins          #+#    #+#             */
-/*   Updated: 2023/10/30 17:22:42 by lburkins         ###   ########.fr       */
+/*   Updated: 2023/10/31 17:05:19 by lburkins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void *ft_memset(void *b, int c, size_t len)
 	}
 	return(b);
 }
-int main(void)
+/*int main(void)
 {
     char	string[] = "This is a string";
 	int	length;
@@ -40,5 +40,5 @@ int main(void)
 //  printf("Real code: %s\n", memset(string, c, sizeof(char) * length));
 	printf("My code: %s\n", ft_memset(string, c, sizeof(char) * length));
 	return 0;
-}
-/* When length is larger than space available in string, real memset gives erroor but mine runs. This should be acciuunted for by user in main (for now). Consider improving later.*/ 
+}*/
+/* When length is larger than space available in string, real memset gives error but mine runs. This should be acciuunted for by user in main (for now). Consider improving later.*/ 
