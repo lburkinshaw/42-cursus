@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lburkins <lburkins@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: lburkins <lburkins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 11:52:54 by lburkins          #+#    #+#             */
-/*   Updated: 2023/10/24 12:54:13 by lburkins         ###   ########.fr       */
+/*   Updated: 2023/11/06 12:58:52 by lburkins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*
-#include <stdio.h>
-#include <ctype.h>
-*/
+
+//#include <stdio.h>
+//#include <ctype.h>
+
+#include "libft.h"
+
 int	ft_isdigit(int c)
 {
 	if (c >= 48 && c <= 57)

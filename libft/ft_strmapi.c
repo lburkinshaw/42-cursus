@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lburkins <lburkins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/24 15:21:06 by lburkins          #+#    #+#             */
-/*   Updated: 2023/11/10 15:07:32 by lburkins         ###   ########.fr       */
+/*   Created: 2023/11/10 14:21:30 by lburkins          #+#    #+#             */
+/*   Updated: 2023/11/10 15:18:14 by lburkins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int	i;
+	char	*rtnstr;
+	int		len;
+	int		i;
 
+	len = ft_strlen(s);
 	i = 0;
-	while (str[i] != '\0')
+	if (!s)
+		return (0);
+	rtnstr = malloc(len + 1);
+	if (rtnstr == 0)
+		return (NULL);
+	while (i < len)
+	{
+		rtnstr[i] = (*f)(i, s[i]);
 		i++;
-	return (i);
+	}
+	rtnstr[i] = '\0';
+	return (rtnstr);
 }
-/*
-int	main(void)
-{
-	char *str;
-
-	str	=  "hello";
-	printf("String is: %s\n", str);
-	printf("Length: %d\n", ft_strlen(str));
-	return (0);
-}*/

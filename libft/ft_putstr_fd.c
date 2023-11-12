@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lburkins <lburkins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/24 15:21:06 by lburkins          #+#    #+#             */
-/*   Updated: 2023/11/10 15:07:32 by lburkins         ###   ########.fr       */
+/*   Created: 2023/10/30 17:06:14 by lburkins          #+#    #+#             */
+/*   Updated: 2023/11/06 13:45:13 by lburkins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+void	ft_putchar_fd(char c, int fd);
+
+void	ft_putstr_fd(char *s, int fd)
 {
 	int	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (s[i] != '\0')
+	{
+		ft_putchar_fd(s[i], fd);
 		i++;
-	return (i);
+	}
 }
 /*
 int	main(void)
 {
-	char *str;
-
-	str	=  "hello";
-	printf("String is: %s\n", str);
-	printf("Length: %d\n", ft_strlen(str));
-	return (0);
-}*/
+	char string[] = "Bladadibla bloop";
+	int	fd = 1;
+	ft_putstr_fd(string, fd);
+	return(0);
+}
+*/

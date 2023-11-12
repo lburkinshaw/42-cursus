@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lburkins <lburkins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/24 15:21:06 by lburkins          #+#    #+#             */
-/*   Updated: 2023/11/10 15:07:32 by lburkins         ###   ########.fr       */
+/*   Created: 2023/11/01 15:25:41 by lburkins          #+#    #+#             */
+/*   Updated: 2023/11/06 13:37:45 by lburkins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
-{
-	int	i;
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *s, int fd);
 
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
+void	ft_putendl_fd(char *s, int fd)
+{
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }
 /*
 int	main(void)
 {
-	char *str;
-
-	str	=  "hello";
-	printf("String is: %s\n", str);
-	printf("Length: %d\n", ft_strlen(str));
-	return (0);
+	char string[] = "Bladadibla bloop";
+	int	fd = 1;
+	ft_putendl_fd(string, fd);
+	return(0);
 }*/

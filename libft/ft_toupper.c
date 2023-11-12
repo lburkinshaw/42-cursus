@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lburkins <lburkins@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: lburkins <lburkins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 14:39:29 by lburkins          #+#    #+#             */
-/*   Updated: 2023/10/25 15:02:06 by lburkins         ###   ########.fr       */
+/*   Updated: 2023/11/06 12:35:01 by lburkins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <stdio.h>
+#include "libft.h"
 
 char	ft_toupper(char c)
 {

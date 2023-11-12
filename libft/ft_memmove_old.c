@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memmove_old.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lburkins <lburkins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/24 15:21:06 by lburkins          #+#    #+#             */
-/*   Updated: 2023/11/10 15:07:32 by lburkins         ###   ########.fr       */
+/*   Created: 2023/11/06 14:47:06 by lburkins          #+#    #+#             */
+/*   Updated: 2023/11/07 11:28:17 by lburkins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	int	i;
+	unsigned char	*d;
+	unsigned char	*s;
+	size_t			i;
 
+	d = (unsigned char *)dst;
+	s = (unsigned char *)src;
 	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
+	if (d == s)
+		return (dst);
+	if (s < d)
+	{
+		while (len--)
+			d[len] = s[len];
+	}
+	while (i < len)
+		ft_memcpy(d, s, len);
+	return (dst);
 }
-/*
-int	main(void)
-{
-	char *str;
-
-	str	=  "hello";
-	printf("String is: %s\n", str);
-	printf("Length: %d\n", ft_strlen(str));
-	return (0);
-}*/

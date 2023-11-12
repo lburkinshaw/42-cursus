@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lburkins <lburkins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/24 15:21:06 by lburkins          #+#    #+#             */
-/*   Updated: 2023/11/10 15:07:32 by lburkins         ###   ########.fr       */
+/*   Created: 2023/11/09 16:02:48 by lburkins          #+#    #+#             */
+/*   Updated: 2023/11/09 16:49:37 by lburkins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+char	*ft_strdup(const char *s1)
 {
-	int	i;
+	int		len;
+	char	*dest;
+	char	*source;
 
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
+	source = (char *)s1;
+	len = ft_strlen(source);
+	dest = (char *)malloc((len + 1) * sizeof(char));
+	if (!dest)
+		return (NULL);
+	ft_strlcpy(dest, source, len + 1);
+	return (dest);
 }
 /*
 int	main(void)
 {
-	char *str;
+	char	*dest;
 
-	str	=  "hello";
-	printf("String is: %s\n", str);
-	printf("Length: %d\n", ft_strlen(str));
+	dest = ft_strdup("Hello");
+	printf("%s", dest);
 	return (0);
 }*/

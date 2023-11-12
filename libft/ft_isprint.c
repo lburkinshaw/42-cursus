@@ -3,19 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lburkins <lburkins@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: lburkins <lburkins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 15:05:44 by lburkins          #+#    #+#             */
-/*   Updated: 2023/10/24 15:15:27 by lburkins         ###   ########.fr       */
+/*   Updated: 2023/11/06 12:59:09 by lburkins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*
-#include <stdio.h>
-#include <ctype.h>
-*/
+
+//#include <stdio.h>
+//#include <ctype.h>
+
+#include "libft.h"
+
 int	ft_isprint(int c)
 {
-	if (c >= 32 && c <= 127)
+	if (c >= 32 && c <= 126)
 		return (1);
 	else
 		return (0);

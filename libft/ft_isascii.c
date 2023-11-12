@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lburkins <lburkins@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: lburkins <lburkins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 11:52:54 by lburkins          #+#    #+#             */
-/*   Updated: 2023/10/24 12:49:08 by lburkins         ###   ########.fr       */
+/*   Updated: 2023/11/06 12:58:40 by lburkins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*
-#include <stdio.h>
-#include <ctype.h>
-*/
+
+//#include <stdio.h>
+//#include <ctype.h>
+#include "libft.h"
+
 int	ft_isascii(int c)
 {
 	if (c >= 0 && c <= 127)

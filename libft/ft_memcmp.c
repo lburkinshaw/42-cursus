@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lburkins <lburkins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/25 16:13:15 by lburkins          #+#    #+#             */
-/*   Updated: 2023/11/09 11:41:12 by lburkins         ###   ########.fr       */
+/*   Created: 2023/11/07 11:43:33 by lburkins          #+#    #+#             */
+/*   Updated: 2023/11/07 14:32:25 by lburkins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <string.h>
-#include <stdio.h>*/
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t			i;
 	unsigned char	*str1;
 	unsigned char	*str2;
+	size_t			i;
 
 	str1 = (unsigned char *)s1;
 	str2 = (unsigned char *)s2;
 	i = 0;
-	while ((str1[i] || str2[i]) && i < n)
+	while (i < n)
 	{
 		if (str1[i] == str2[i])
 			i++;
@@ -35,13 +33,8 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 /*
 int	main(void)
 {
-	char	*string1;
-	char	*string2;
-	
-	string1 = "hello world";
-	string2 = "Hello world";
-	printf("My code says: %d\n", ft_strncmp("test\200", "test\0", 6));
-	printf("Actual code says: %d\n", strncmp("test\200", "test\0", 6));
-	return (0);
-}
-*/
+	char s1[] = "Hello";
+	char s2[] = "HEllo";
+	printf("%d\n", ft_memcmp(s1, s2, 4));
+	printf("%d\n", memcmp(s1, s2, 4));
+}*/

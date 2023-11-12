@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lburkins <lburkins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/24 15:21:06 by lburkins          #+#    #+#             */
-/*   Updated: 2023/11/10 15:07:32 by lburkins         ###   ########.fr       */
+/*   Created: 2023/11/09 11:55:13 by lburkins          #+#    #+#             */
+/*   Updated: 2023/11/09 12:05:27 by lburkins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int	i;
+	size_t			i;
+	unsigned char	ch;
+	unsigned char	*str;
 
 	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
+	ch = (unsigned char) c;
+	str = (unsigned char *)s;
+	while (str[i] && i < n)
+	{
+		if (str[i] == ch)
+			return (str + i);
+		else
+			i++;
+	}
+	if (ch == '\0')
+		return (str + i);
+	else
+		return (NULL);
 }
-/*
-int	main(void)
-{
-	char *str;
-
-	str	=  "hello";
-	printf("String is: %s\n", str);
-	printf("Length: %d\n", ft_strlen(str));
-	return (0);
-}*/

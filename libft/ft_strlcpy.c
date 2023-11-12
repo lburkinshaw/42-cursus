@@ -3,47 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lburkins <lburkins@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: lburkins <lburkins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 15:50:30 by lburkins          #+#    #+#             */
-/*   Updated: 2023/10/26 17:39:40 by lburkins         ###   ########.fr       */
+/*   Updated: 2023/11/07 16:04:38 by lburkins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
+#include "libft.h"
 
-size_t ft_strlcpy(char *dst, const char *src, size_t dstsize)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	size_t i;
-	size_t len;
+	size_t	i;
 
-   	i = 0;
-	len = 0;
-	while (dst[len] != '\0')
-        len++;
-    if (dstsize >= len + 1)//attempting to account for dstsize being larger than len available at dest.
-    {
-        return (0);
-    }
-    len = 0;
-	while (src[len] != '\0')
-		len++;
+	i = 0;
 	if (dstsize == 0)
-		return (len);
-	else
 	{
-		while ((i < dstsize - 1) && (src[i] != '\0'))
-		{
-			dst[i] = src[i];
+		while (src[i])
 			i++;
-		}
-		dst[i] = '\0';
-		return (len);
+		return (i);
 	}
+	while (src[i] != '\0' && i < dstsize - 1)
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	if (i < dstsize)
+		dst[i] = '\0';
+	while (src[i] != '\0')
+		i++;
+	return (i);
 }
-
-int main(void)
+/*int main(void)
 {
 	char dest[] = "Lauren";
 	char source[] = "Not Lauren";
@@ -58,5 +49,6 @@ int main(void)
 	printf("RealCode source size: %zu. Dest now: %s\n", test_real, dest);
 	return (0);
 }
-
-/* why does real function give result of "zsh: abort      ./a.out" in terminal when dest_size is greater than actual size of dest??*/
+*/
+/*why does real function give result of "zsh: abort      ./a.out"
+ in terminal when dest_size is greater than actual size of dest??*/

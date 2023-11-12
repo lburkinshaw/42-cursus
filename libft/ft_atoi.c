@@ -1,64 +1,48 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: lburkins <lburkins@student.hive.fi>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/25 16:37:21 by lburkins          #+#    #+#             */
-/*   Updated: 2023/10/25 17:25:43 by lburkins         ###   ########.fr       */
-/*                                                                            */
+/*		                                                                    */
+/*		                                                :::      ::::::::   */
+/*   ft_atoi_new.c		                              :+:      :+:    :+:   */
+/*		                                            +:+ +:+         +:+     */
+/*   By: lburkins <lburkins@student.42.fr>		  +#+  +:+       +#+        */
+/*		                                        +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/08 13:24:17 by lburkins		  #+#    #+#             */
+/*   Updated: 2023/11/08 16:59:22 by lburkins         ###   ########.fr       */
+/*		                                                                    */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
-//function to convert string argument to an integer and return it.
 int	ft_atoi(const char *str)
 {
-	int i;
-	int nb;
+	int	nb;
+	int	i;
+	int	isneg;
 
 	i = 0;
 	nb = 0;
-	if (str[i] != 45)// if not negative (-).
+	isneg = 1;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		while (str[i] != '\0')// until end of string. 
-		{
-			if (str[i] < 48 || str[i] > 57)// if not digit.
-				return (nb);// return number so far (up to non-digit character)
-			else
-			{
-				nb = (nb * 10) + (str[i] - 48);//convert each char to int.
-				i++;
-			}
-		}	
+		if (str[i] == '-')
+			isneg = -1;
+		i++;
 	}
-	else if (str[i] == 45)// if negative (-).
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		i++;//move past - to first char.
-		while (str[i] != '\0')
-		{
-			if ((str[i] < 48) || (str[i] > 57))// if not digit.
-				return (nb);// return number so far (up to non-digit character)
-
-			else
-			{
-				nb = (nb * 10) + (str[i] - 48);//convert each char to int.
-				i++;
-			}
-		}
-		nb = 0 - nb;//make negative.
+		nb = (nb * 10) + (str[i] - '0');
+		i++;
 	}
-	return (nb);
+	return (nb * isneg);
 }
-
+/*
 int main (void)
 {
 	const char *string;
 
-	string = "1abc";
+	string = "469";
 	printf("MyCode: String is %s, Int is %d\n", string, ft_atoi(string));
 	printf("RealCode: String is %s, Int is %d\n", string, atoi(string));
 	return (0);
-}
+}*/
