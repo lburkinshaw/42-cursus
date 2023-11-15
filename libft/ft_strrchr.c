@@ -6,7 +6,7 @@
 /*   By: lburkins <lburkins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 10:50:49 by lburkins          #+#    #+#             */
-/*   Updated: 2023/11/09 14:14:22 by lburkins         ###   ########.fr       */
+/*   Updated: 2023/11/13 17:12:16 by lburkins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ char	*ft_strrchr(const char *s, int c)
 	ch = (char)c;
 	while (s[i])
 		i++;
-	while (s[i] != s[0])
+	while (i > 0)
 	{
 		if (s[i] == ch)
 			return ((char *)&s[i]);
 		else
 			i--;
 	}
-	if (ch == s[i])
+	if (ch == s[0])
 		return ((char *)&s[i]);
 	else
 		return (NULL);

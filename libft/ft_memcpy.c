@@ -6,7 +6,7 @@
 /*   By: lburkins <lburkins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 13:51:48 by lburkins          #+#    #+#             */
-/*   Updated: 2023/11/06 13:00:32 by lburkins         ###   ########.fr       */
+/*   Updated: 2023/11/13 14:58:40 by lburkins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,15 @@
 
 void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 {
-	unsigned char		*dstptr;
-	const unsigned char	*srcptr;
-	size_t				i;
+	unsigned char	*dstptr;
+	unsigned char	*srcptr;
+	size_t			i;
 
-	dstptr = dst;
-	srcptr = src;
+	dstptr = (unsigned char *)dst;
+	srcptr = (unsigned char *)src;
 	i = 0;
+	if (!src && !dst)
+		return (0);
 	while (i < n)
 	{
 		dstptr[i] = srcptr[i];
@@ -48,5 +50,4 @@ void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
     printf("Copied string: %s\n", d1);
    	printf("Copied string: %s\n", d2);
 	return(0);
-}
-*/
+}*/

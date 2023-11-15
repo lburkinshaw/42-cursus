@@ -6,7 +6,7 @@
 /*   By: lburkins <lburkins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 09:45:03 by lburkins          #+#    #+#             */
-/*   Updated: 2023/11/07 09:54:15 by lburkins         ###   ########.fr       */
+/*   Updated: 2023/11/13 15:01:28 by lburkins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	d = (unsigned char *)dst;
 	s = (unsigned char *)src;
 	i = 0;
+	if (!d && !s)
+		return (0);
 	if (d == s)
 		return (dst);
 	else if (s < d)

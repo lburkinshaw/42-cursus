@@ -6,7 +6,7 @@
 #    By: lburkins <lburkins@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 16:46:37 by lburkins          #+#    #+#              #
-#    Updated: 2023/11/12 14:41:34 by lburkins         ###   ########.fr        #
+#    Updated: 2023/11/14 12:36:05 by lburkins         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,7 @@ CFILES	=	ft_atoi.c \
 			ft_toupper.c \
 			ft_substr.c \
 			ft_strjoin.c \
+			ft_split.c \
 			ft_strtrim.c \
 			ft_strmapi.c \
 			ft_striteri.c
