@@ -6,7 +6,7 @@
 /*   By: lburkins <lburkins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 15:25:41 by lburkins          #+#    #+#             */
-/*   Updated: 2023/11/06 13:37:45 by lburkins         ###   ########.fr       */
+/*   Updated: 2023/11/16 14:10:46 by lburkins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,3 @@ void	ft_putendl_fd(char *s, int fd)
 	ft_putstr_fd(s, fd);
 	ft_putchar_fd('\n', fd);
 }
-/*
-int	main(void)
-{
-	char string[] = "Bladadibla bloop";
-	int	fd = 1;
-	ft_putendl_fd(string, fd);
-	return(0);
-}*/

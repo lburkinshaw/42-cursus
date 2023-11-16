@@ -6,12 +6,10 @@
 /*   By: lburkins <lburkins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 16:13:15 by lburkins          #+#    #+#             */
-/*   Updated: 2023/11/09 11:41:12 by lburkins         ###   ########.fr       */
+/*   Updated: 2023/11/16 14:11:40 by lburkins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <string.h>
-#include <stdio.h>*/
 #include "libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
@@ -32,16 +30,3 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	}
 	return (0);
 }
-/*
-int	main(void)
-{
-	char	*string1;
-	char	*string2;
-	
-	string1 = "hello world";
-	string2 = "Hello world";
-	printf("My code says: %d\n", ft_strncmp("test\200", "test\0", 6));
-	printf("Actual code says: %d\n", strncmp("test\200", "test\0", 6));
-	return (0);
-}
-*/

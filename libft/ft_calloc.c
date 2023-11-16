@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lburkins <lburkins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 14:54:25 by lburkins          #+#    #+#             */
-/*   Updated: 2023/11/09 15:55:21 by lburkins         ###   ########.fr       */
+/*   Created: 2023/11/16 14:50:28 by lburkins          #+#    #+#             */
+/*   Updated: 2023/11/16 15:04:36 by lburkins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*ft_calloc(size_t count, size_t size)
 	void	*mem;
 
 	mem = 0;
-	if (count > (UINT_MAX / size))
+	if ((count * size) > SIZE_MAX)
 		return (NULL);
 	mem = (void *)malloc(count * size);
 	if (mem == 0)
@@ -25,9 +25,3 @@ void	*ft_calloc(size_t count, size_t size)
 	ft_bzero(mem, count * size);
 	return (mem);
 }
-/*
-int	main(void)
-{
-	printf("%s", ft_calloc(2, 2));
-	return (0);
-}*/

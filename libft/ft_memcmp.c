@@ -6,7 +6,7 @@
 /*   By: lburkins <lburkins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:43:33 by lburkins          #+#    #+#             */
-/*   Updated: 2023/11/13 16:53:25 by lburkins         ###   ########.fr       */
+/*   Updated: 2023/11/16 14:10:20 by lburkins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,3 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	return (0);
 }
-/*
-int	main(void)
-{
-	char s1[] = "Hello";
-	char s2[] = "HEllo";
-	printf("%d\n", ft_memcmp(s1, s2, 4));
-	printf("%d\n", memcmp(s1, s2, 4));
-}*/

@@ -9,9 +9,8 @@
 /*   Updated: 2023/11/06 12:10:41 by lburkins         ###   ########.fr       */
 /*	                                                                        */
 /* ************************************************************************** */
+
 #include "libft.h"
-#include <string.h>
-#include <stdio.h>
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
@@ -37,34 +36,3 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	}
 	return (0);
 }
-/*
-int main(void)
-{
-	char *s1 = "oh no not the empty string !";
- 	char *s2 = "";
- 	size_t max = 0;
- 	char *i1 = strnstr(s1, s2, max);
- 	char *i2 = ft_strnstr(s1, s2, max);
-	printf("%s\n", i1);
-	printf("%s\n", i2);
- 	if (i1 == i2)
- 		printf("TEST_SUCCESS");
- 	else 
-		printf("TEST_FAILED");
-	return 0;
-	char haystack[] = "lorem ipsum dolor sit amet";
-	char needle[] = "dolor";
-	char *location = strstr(haystack, needle);
-
-	if (location != NULL) 
-	{
-	    printf("'%s' found at index: %ld\n", needle, location - haystack);
-	}
-	else
-	{
-	    printf("Substring not found\n");
-	}
-
-	printf("%s\n", ft_strnstr(haystack, needle, 15));
-	printf("%s\n", strnstr(haystack, needle, 15));
-}*/

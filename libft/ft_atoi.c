@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*		                                                                    */
-/*		                                                :::      ::::::::   */
-/*   ft_atoi_new.c		                              :+:      :+:    :+:   */
-/*		                                            +:+ +:+         +:+     */
-/*   By: lburkins <lburkins@student.42.fr>		  +#+  +:+       +#+        */
-/*		                                        +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 13:24:17 by lburkins		  #+#    #+#             */
-/*   Updated: 2023/11/08 16:59:22 by lburkins         ###   ########.fr       */
-/*		                                                                    */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lburkins <lburkins@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/16 14:08:41 by lburkins          #+#    #+#             */
+/*   Updated: 2023/11/16 14:08:45 by lburkins         ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
@@ -36,13 +36,3 @@ int	ft_atoi(const char *str)
 	}
 	return (nb * isneg);
 }
-/*
-int main (void)
-{
-	const char *string;
-
-	string = "469";
-	printf("MyCode: String is %s, Int is %d\n", string, ft_atoi(string));
-	printf("RealCode: String is %s, Int is %d\n", string, atoi(string));
-	return (0);
-}*/

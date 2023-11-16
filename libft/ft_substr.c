@@ -6,7 +6,7 @@
 /*   By: lburkins <lburkins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:13:54 by lburkins          #+#    #+#             */
-/*   Updated: 2023/11/10 17:09:03 by lburkins         ###   ########.fr       */
+/*   Updated: 2023/11/16 15:49:13 by lburkins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	i = start;
 	j = 0;
-	if (start > (ft_strlen(s) - 1))
+	if (s == NULL || start >= ft_strlen(s) || len == 0)
 		return ((char *)ft_calloc(1, 1));
 	sublen = ft_strlen(s + start);
 	if (len > sublen)

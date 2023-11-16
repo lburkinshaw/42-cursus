@@ -6,7 +6,7 @@
 /*   By: lburkins <lburkins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 15:50:30 by lburkins          #+#    #+#             */
-/*   Updated: 2023/11/07 16:04:38 by lburkins         ###   ########.fr       */
+/*   Updated: 2023/11/16 14:11:24 by lburkins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,21 +34,3 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 		i++;
 	return (i);
 }
-/*int main(void)
-{
-	char dest[] = "Lauren";
-	char source[] = "Not Lauren";
-	size_t	dest_size = 20;
-	size_t	test_mine;
-	size_t	test_real;
-	
-   	printf("Original dest: %s\n", dest);
-	test_mine = ft_strlcpy(dest, source, dest_size);
-	printf("MyCode source size: %zu. Dest now: %s\n", test_mine, dest);
-	test_real = strlcpy(dest, source, dest_size);
-	printf("RealCode source size: %zu. Dest now: %s\n", test_real, dest);
-	return (0);
-}
-*/
-/*why does real function give result of "zsh: abort      ./a.out"
- in terminal when dest_size is greater than actual size of dest??*/

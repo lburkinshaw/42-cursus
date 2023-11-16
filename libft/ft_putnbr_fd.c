@@ -34,14 +34,3 @@ void	ft_putnbr_fd(int n, int fd)
 	else
 		ft_putchar_fd(n + 48, fd);
 }
-/*
-int main(void)
-{
-int num;
-int file_des;
-
-num = -2147483648LL;
-file_des = 1;
-ft_putnbr_fd(num, file_des);
-return(0);
-}*/

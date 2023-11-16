@@ -6,16 +6,15 @@
 /*   By: lburkins <lburkins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 14:53:47 by lburkins          #+#    #+#             */
-/*   Updated: 2023/11/06 12:34:57 by lburkins         ###   ########.fr       */
+/*   Updated: 2023/11/16 14:49:08 by lburkins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
 #include "libft.h"
 
-char	ft_tolower(char c)
+int	ft_tolower(int c)
 {
-	if (c >= 65 && c <= 90)
+	if (c >= 'A' && c <= 'Z')
 	{
 		c = c + 32;
 		return (c);
@@ -23,16 +22,3 @@ char	ft_tolower(char c)
 	else
 		return (c);
 }
-/*
-int	main(void)
-{
-	char	lower;
-	char	upper;
-	
-	lower = 'a';
-	upper = 'B';
-
-	printf("My function: %c to %c\n", lower, ft_tolower(lower));
-	printf("My function: %c to %c\n", upper, ft_tolower(upper));
-	return (0);
-}*/

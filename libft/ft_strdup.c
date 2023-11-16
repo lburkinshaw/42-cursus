@@ -6,7 +6,7 @@
 /*   By: lburkins <lburkins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:02:48 by lburkins          #+#    #+#             */
-/*   Updated: 2023/11/09 16:49:37 by lburkins         ###   ########.fr       */
+/*   Updated: 2023/11/16 14:11:13 by lburkins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,3 @@ char	*ft_strdup(const char *s1)
 	ft_strlcpy(dest, source, len + 1);
 	return (dest);
 }
-/*
-int	main(void)
-{
-	char	*dest;
-
-	dest = ft_strdup("Hello");
-	printf("%s", dest);
-	return (0);
-}*/

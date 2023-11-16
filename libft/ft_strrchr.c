@@ -6,7 +6,7 @@
 /*   By: lburkins <lburkins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 10:50:49 by lburkins          #+#    #+#             */
-/*   Updated: 2023/11/13 17:12:16 by lburkins         ###   ########.fr       */
+/*   Updated: 2023/11/16 14:48:44 by lburkins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,24 +33,3 @@ char	*ft_strrchr(const char *s, int c)
 	else
 		return (NULL);
 }
-/*int	main(void)
-{
- 	const char	*string;
-	int	find;
-	const char *result;
-
-	string = "Helloo";
-	find = 'l';
-	result = ft_strrchr(string, find);
-	if (result != NULL)
-		printf("MyCode: Last occurence is index %ld.\n", result - string);
-	else
-		printf("MyCode: No occurences");
-
-	result = strrchr(string, find);
-	if (result != NULL)
-		printf("RealCode: Last occurence is index %ld.\n", result - string);
-	else
-		printf("Real Code: No occurences", find, string);
-	return (0);
-}*/

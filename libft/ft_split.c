@@ -6,31 +6,26 @@
 /*   By: lburkins <lburkins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:36:31 by lburkins          #+#    #+#             */
-/*   Updated: 2023/11/15 12:26:24 by lburkins         ###   ########.fr       */
+/*   Updated: 2023/11/16 19:05:05 by lburkins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 static size_t	count_strings(char const *s, char c)
 {
-	int	i;
-	int	count;
+	size_t	i;
+	size_t	j;
 
-	count = 0;
 	i = 0;
-	if (c  == '\0')
-		return (0);
-	while (s[i] != '\0')
+	j = 0;
+	while (s[i])
 	{
-		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
-		{
-			count++;
-		}
+		if (s[i] != c && (!i || s[i - 1] == c))
+			j++;
 		i++;
 	}
-	return (count);
+	return (j);
 }
 
 static size_t	count_len(char const *s, char c)
@@ -43,64 +38,53 @@ static size_t	count_len(char const *s, char c)
 	return (i);
 }
 
-static void	free_array(size_t i, char **array)
+static int	ft_free(char **array, size_t i)
 {
-	while (i > 0)
-	{
-		i--;
-		free(*(array + i));
-	}
-	free(array);
-}
-
-static size_t	split(char const *s, char c, char **array, size_t i, size_t j)
-{
-	array[i] = ft_substr(s, j, count_len(s + j, c));
 	if (array[i] == 0)
 	{
-		free_array(i, array);
-		return (i);
+		i = 0;
+		while (array[i])
+			free(array[i++]);
+		free(array);
+		return (1);
 	}
-	return (i + 1);
+	return (0);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	size_t		words;
-	char		**split_str;
-	size_t		i;
-	size_t		j;
+	size_t	num_strings;
+	char	**split_str;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	j = 0;
-	if (!s)
-		return (0);
-	while (*s == c)
-		s++;
-	words = count_strings(s, c);
-	split_str = (char **)malloc((words + 1) * sizeof(char *));
+	num_strings = count_strings(s, c);
+	split_str = (char **)malloc((num_strings + 1) * sizeof(char *));
 	if (split_str == NULL)
 		return (NULL);
-	while (i < words)
+	while (i < num_strings && s[j])
 	{
-		i = split(s, c, split_str, i, j);
-		j += count_len(s + j, c);
-		while (s[j] == c)
-			j++;
+		if (s[j] != c && s[j] != '\0')
+		{
+			split_str[i] = ft_substr(s, j, count_len(s + j, c));
+			if (ft_free(split_str, i) == 1)
+				return (NULL);
+			j += count_len(s + j, c);
+			i++;
+		}
+		j++;
 	}
-	split_str[i] = 0;
+	split_str[num_strings] = NULL;
 	return (split_str);
 }
 /*
-int	main(void)
+#include <stdio.h>
+int main(void)
 {
-	char *s = "-hello--you---";	
-	char **result = ft_split(s, '-');
-	int i = 0;
-	while(result[i] != NULL)
-	{
-		printf("%s\n", result[i]);
-		i++;
-	}
-	return (0);
-}*/
+	char **res = ft_split("one", 'q');
+	printf("%s\n", res[0]);
+	printf("%s\n", res[1]);
+}
+*/
