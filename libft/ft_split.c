@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lburkins <lburkins@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lburkins <lburkins@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:36:31 by lburkins          #+#    #+#             */
-/*   Updated: 2023/11/16 19:05:05 by lburkins         ###   ########.fr       */
+/*   Updated: 2023/11/23 10:05:04 by lburkins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	count_strings(char const *s, char c)
+static size_t	ft_count_strings(char const *s, char c)
 {
 	size_t	i;
 	size_t	j;
@@ -28,7 +28,7 @@ static size_t	count_strings(char const *s, char c)
 	return (j);
 }
 
-static size_t	count_len(char const *s, char c)
+static size_t	ft_count_len(char const *s, char c)
 {
 	size_t	i;
 
@@ -60,7 +60,7 @@ char	**ft_split(char const *s, char c)
 
 	i = 0;
 	j = 0;
-	num_strings = count_strings(s, c);
+	num_strings = ft_count_strings(s, c);
 	split_str = (char **)malloc((num_strings + 1) * sizeof(char *));
 	if (split_str == NULL)
 		return (NULL);
@@ -68,10 +68,10 @@ char	**ft_split(char const *s, char c)
 	{
 		if (s[j] != c && s[j] != '\0')
 		{
-			split_str[i] = ft_substr(s, j, count_len(s + j, c));
+			split_str[i] = ft_substr(s, j, ft_count_len(s + j, c));
 			if (ft_free(split_str, i) == 1)
 				return (NULL);
-			j += count_len(s + j, c);
+			j += ft_count_len(s + j, c);
 			i++;
 		}
 		j++;
@@ -79,12 +79,3 @@ char	**ft_split(char const *s, char c)
 	split_str[num_strings] = NULL;
 	return (split_str);
 }
-/*
-#include <stdio.h>
-int main(void)
-{
-	char **res = ft_split("one", 'q');
-	printf("%s\n", res[0]);
-	printf("%s\n", res[1]);
-}
-*/

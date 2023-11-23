@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lburkins <lburkins@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 16:02:48 by lburkins          #+#    #+#             */
-/*   Updated: 2023/11/23 10:05:14 by lburkins         ###   ########.fr       */
+/*   Created: 2023/11/17 10:52:29 by lburkins          #+#    #+#             */
+/*   Updated: 2023/11/23 10:03:37 by lburkins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+t_list	*ft_lstnew(void *content)
 {
-	int		len;
-	char	*dest;
-	char	*source;
+	t_list	*new;
 
-	source = (char *)s1;
-	len = ft_strlen(source);
-	dest = (char *)malloc((len + 1) * sizeof(char));
-	if (!dest)
+	new = (t_list *)malloc(sizeof(t_list));
+	if (!new)
 		return (NULL);
-	ft_strlcpy(dest, source, len + 1);
-	return (dest);
+	new -> content = content;
+	new -> next = NULL;
+	return (new);
 }

@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lburkins <lburkins@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lburkins <lburkins@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 15:03:14 by lburkins          #+#    #+#             */
-/*   Updated: 2023/11/16 14:11:09 by lburkins         ###   ########.fr       */
+/*   Updated: 2023/11/23 10:05:11 by lburkins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -29,5 +27,5 @@ char	*ft_strchr(const char *s, int c)
 	if (ch == '\0')
 		return ((char *)&s[i]);
 	else
-		return (NULL);
+		return (0);
 }

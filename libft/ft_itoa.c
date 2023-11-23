@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lburkins <lburkins@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lburkins <lburkins@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:12:12 by lburkins          #+#    #+#             */
-/*   Updated: 2023/11/16 15:22:00 by lburkins         ###   ########.fr       */
+/*   Updated: 2023/11/23 10:02:50 by lburkins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	int	howlong(int n)
+static int	ft_howlong(int n)
 {
 	int	len;
 
@@ -38,7 +38,7 @@ char	*ft_itoa(int n)
 	char	*rtnstr;
 	int		i;
 
-	len = howlong(n);
+	len = ft_howlong(n);
 	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
 	if (n == 0)

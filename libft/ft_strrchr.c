@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lburkins <lburkins@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lburkins <lburkins@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 10:50:49 by lburkins          #+#    #+#             */
-/*   Updated: 2023/11/16 14:48:44 by lburkins         ###   ########.fr       */
+/*   Updated: 2023/11/23 10:05:58 by lburkins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {
@@ -31,5 +29,5 @@ char	*ft_strrchr(const char *s, int c)
 	if (ch == s[0])
 		return ((char *)&s[i]);
 	else
-		return (NULL);
+		return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lburkins <lburkins@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lburkins <lburkins@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:13:54 by lburkins          #+#    #+#             */
-/*   Updated: 2023/11/16 15:49:13 by lburkins         ###   ########.fr       */
+/*   Updated: 2023/11/23 10:06:21 by lburkins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	dest[j] = '\0';
 	return (dest);
 }
-/*
-int	main(void)
-{
-	char	*source = "Hello you";
-	char	*dest;
-
-	dest = ft_substr(source, 3, 3);
-	printf("%s", dest);
-	return (0);
-}*/
