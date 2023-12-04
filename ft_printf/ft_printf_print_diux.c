@@ -6,7 +6,7 @@
 /*   By: lburkins <lburkins@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 10:38:50 by lburkins          #+#    #+#             */
-/*   Updated: 2023/11/30 15:56:23 by lburkins         ###   ########.fr       */
+/*   Updated: 2023/12/01 11:51:20 by lburkins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,26 +31,6 @@ int	printnbr_diu(long n, int *check)
 	}
 	else
 		count += printchar((n + '0'), check);
-	return (count);
-}
-
-int	printnbr_ptr(unsigned long int n, const char upper_lower, int *check)
-{
-	int		count;
-	char	*symbols;
-
-	if (upper_lower == 'x')
-		symbols = "0123456789abcdef";
-	else
-		symbols = "0123456789ABCDEF";
-	count = 0;
-	if (n > 15)
-	{
-		count += printnbr_ptr((n / 16), upper_lower, check);
-		count += printchar(symbols[n % 16], check);
-	}
-	else
-		count += printchar(symbols[n], check);
 	return (count);
 }
 

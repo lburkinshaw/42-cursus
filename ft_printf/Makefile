@@ -6,7 +6,7 @@
 #    By: lburkins <lburkins@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 15:28:50 by lburkins          #+#    #+#              #
-#    Updated: 2023/11/30 16:52:56 by lburkins         ###   ########.fr        #
+#    Updated: 2023/11/30 14:39:26 by lburkins         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,28 +22,17 @@ CFLAGS = -Wall -Wextra -Werror
 
 CC = cc
 
-LIBFT_PATH = ./libft
-
-LIBFT = $(LIBFT_PATH)/libft.a
-
-
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(OFILES)
-	cp $(LIBFT) $(NAME)
+$(NAME): $(OFILES)
 	ar rcs $(NAME) $(OFILES)
 
-$(LIBFT):
-	make -C $(LIBFT_PATH) all
-
 clean:
-	make -C $(LIBFT_PATH) clean
 	rm -f $(OFILES)
 
 fclean: clean
-	make -C $(LIBFT_PATH) fclean
 	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re libft
+.PHONY: all clean fclean re

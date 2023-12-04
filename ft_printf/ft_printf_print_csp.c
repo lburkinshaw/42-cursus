@@ -6,7 +6,7 @@
 /*   By: lburkins <lburkins@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 15:37:29 by lburkins          #+#    #+#             */
-/*   Updated: 2023/11/30 16:04:36 by lburkins         ###   ########.fr       */
+/*   Updated: 2023/12/01 11:51:33 by lburkins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,24 @@ int	printptr(unsigned long int ptr, int *check)
 	else
 	{
 		count += printstr("0x", check);
-		count += printnbr_ptr(ptr, 'x', check);
+		count += printnbr_ptr(ptr, check);
 	}
+	return (count);
+}
+
+int	printnbr_ptr(unsigned long int n, int *check)
+{
+	int		count;
+	char	*symbols;
+
+	symbols = "0123456789abcdef";
+	count = 0;
+	if (n > 15)
+	{
+		count += printnbr_ptr((n / 16), check);
+		count += printchar(symbols[n % 16], check);
+	}
+	else
+		count += printchar(symbols[n], check);
 	return (count);
 }
