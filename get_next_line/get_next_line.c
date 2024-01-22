@@ -6,7 +6,7 @@
 /*   By: lburkins <lburkins@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 11:54:22 by lburkins          #+#    #+#             */
-/*   Updated: 2024/01/17 14:51:28 by lburkins         ###   ########.fr       */
+/*   Updated: 2024/01/22 15:29:22 by lburkins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,49 +14,60 @@
 
 char	*get_next_line(int fd)
 {
-	static char	*stash;
-	char		*temp_stash;
-	char		*nxt_line;
+	static char	*remainder;
+	char		*stash;//need this to prevent leaks on read error test
+	char		*line;
 
-	//printf("%d", fd);
 	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (NULL);
-
-	temp_stash = read_file(fd, stash);
-	if (!temp_stash)
+		{
+			//ft_free(&remainder);
+			return (NULL);
+		}
+	stash = read_file(fd, remainder);
+	if (!stash)
 	{
-		if (stash)
-			free(stash);
-		stash = NULL;
+		ft_free(&remainder);
 		return (NULL);
 	}
-	stash = temp_stash;
-	nxt_line = extract_line(stash);
-	stash = trim_stash(stash, nxt_line);
-	return (nxt_line);
+	//stash = temp_stash;
+	line = extract_line(stash);
+	if (!line)
+	{
+		ft_free(&line);
+		ft_free(&stash);
+		return (NULL);
+	}
+	remainder = trim_stash(stash, line);
+	return (line);
 }
 
-char	*read_file(int fd, char *stash)
+char	*read_file(int fd, char *rem)
 {
 	char	*buff;
 	int		char_read;
+	char	*stash_add;
 
+	stash_add = rem; //this is just for clarity in code
 	char_read = 1;
-	while (!check_newline(stash) && char_read != 0)
+	while (!check_newline(stash_add) && char_read != 0)
 	{
 		buff = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 		if (!buff)
-			return (NULL);
-		char_read = (int)read(fd, buff, BUFFER_SIZE);
-		if ((!stash && char_read == 0) || char_read == -1)
 		{
-			free(buff);
+			ft_free(&stash_add);
+			return (NULL);
+		}
+		char_read = read(fd, buff, BUFFER_SIZE);
+		if ((!stash_add && char_read == 0) || char_read == -1)
+		{
+			ft_free(&buff);
 			return (NULL);
 		}
 		buff[char_read] = '\0';
-		stash = ft_strjoin(stash, buff);
+		stash_add = ft_strjoin(stash_add, buff);
+		ft_free(&buff);
 	}
-	return (stash);
+	return (stash_add);
 }
 
 char	*extract_line(char *stash)
@@ -81,39 +92,38 @@ char	*extract_line(char *stash)
 		i++;
 	}
 	if (stash[i] == '\n')
-	{
-		line[i] = '\n';
-		i++;
-	}
+		line[i++] = '\n';
 	line[i] = '\0';
 	return (line);
 }
 
-char	*trim_stash(char *stash, char *next_line)
+char	*trim_stash(char *stash, char *line)
 {
 	char	*trimmed;
 	int		i;
 	int		j;
 
-	i = 0;
 	j = 0;
-	i = ft_strlen(next_line);
-	if (!stash[i])
+	i = ft_strlen(line);
+	if (stash[i] == '\0')
 	{
-		free(stash);
+		ft_free(&stash);
 		return (NULL);
 	}
 	while (stash[i++])
 		j++;
 	trimmed = malloc(sizeof(char) * (j + 1));
 	if (!trimmed)
+	{
+		//ft_free(&trimmed);//not necessary?
 		return (NULL);
-	i = ft_strlen(next_line);
+	}
+	i = ft_strlen(line);
 	j = 0;
 	while (stash[i])
 		trimmed[j++] = stash[i++];
 	trimmed[j] = '\0';
-	free(stash);
+	ft_free(&stash);//this maybe shouldnt be freed here but removing causes leaks.
 	return (trimmed);
 }
 
