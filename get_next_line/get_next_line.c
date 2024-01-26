@@ -6,7 +6,7 @@
 /*   By: lburkins <lburkins@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 11:54:22 by lburkins          #+#    #+#             */
-/*   Updated: 2024/01/22 15:29:22 by lburkins         ###   ########.fr       */
+/*   Updated: 2024/01/24 12:20:43 by lburkins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,60 +14,47 @@
 
 char	*get_next_line(int fd)
 {
-	static char	*remainder;
-	char		*stash;//need this to prevent leaks on read error test
+	static char	*stash;
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
-		{
-			//ft_free(&remainder);
-			return (NULL);
-		}
-	stash = read_file(fd, remainder);
-	if (!stash)
 	{
-		ft_free(&remainder);
-		return (NULL);
-	}
-	//stash = temp_stash;
-	line = extract_line(stash);
-	if (!line)
-	{
-		ft_free(&line);
 		ft_free(&stash);
 		return (NULL);
 	}
-	remainder = trim_stash(stash, line);
+	stash = read_file(fd, stash);
+	if (malloc_check(&stash, &stash) > 0)
+		return (NULL);
+	line = extract_line(stash);
+	if (malloc_check(&line, &stash) > 0)
+		return (NULL);
+	stash = trim_stash(stash, line);
 	return (line);
 }
 
-char	*read_file(int fd, char *rem)
+char	*read_file(int fd, char *stash)
 {
 	char	*buff;
 	int		char_read;
-	char	*stash_add;
 
-	stash_add = rem; //this is just for clarity in code
 	char_read = 1;
-	while (!check_newline(stash_add) && char_read != 0)
+	while (check_newline(stash) == 0 && char_read > 0)
 	{
 		buff = malloc(sizeof(char) * (BUFFER_SIZE + 1));
-		if (!buff)
-		{
-			ft_free(&stash_add);
+		if (malloc_check(&buff, &stash) > 0)
 			return (NULL);
-		}
 		char_read = read(fd, buff, BUFFER_SIZE);
-		if ((!stash_add && char_read == 0) || char_read == -1)
+		if ((!stash && char_read == 0) || char_read == -1)
 		{
+			ft_free(&stash);
 			ft_free(&buff);
 			return (NULL);
 		}
 		buff[char_read] = '\0';
-		stash_add = ft_strjoin(stash_add, buff);
+		stash = ft_strjoin(stash, buff);
 		ft_free(&buff);
 	}
-	return (stash_add);
+	return (stash);
 }
 
 char	*extract_line(char *stash)
@@ -103,42 +90,20 @@ char	*trim_stash(char *stash, char *line)
 	int		i;
 	int		j;
 
-	j = 0;
 	i = ft_strlen(line);
 	if (stash[i] == '\0')
 	{
 		ft_free(&stash);
 		return (NULL);
 	}
-	while (stash[i++])
-		j++;
+	j = ft_strlen(stash + i);
 	trimmed = malloc(sizeof(char) * (j + 1));
-	if (!trimmed)
-	{
-		//ft_free(&trimmed);//not necessary?
+	if (malloc_check(&trimmed, &stash) > 0)
 		return (NULL);
-	}
-	i = ft_strlen(line);
 	j = 0;
 	while (stash[i])
 		trimmed[j++] = stash[i++];
 	trimmed[j] = '\0';
-	ft_free(&stash);//this maybe shouldnt be freed here but removing causes leaks.
+	ft_free(&stash);
 	return (trimmed);
-}
-
-int	check_newline(char *stash)
-{
-	int	i;
-
-	i = 0;
-	if (!stash)
-		return (0);
-	while (stash[i])
-	{
-		if (stash[i] == '\n')
-			return (1);
-		i++;
-	}
-	return (0);
 }
